@@ -14,7 +14,7 @@
 
     <div class="container">
 
-        <form action="/accounts/thanks/" method="post">
+        <form action="/accounts/new/" method="post">
         {% csrf_token %}
         {{ form|crispy }}
          <input type="submit" value="Submit" />

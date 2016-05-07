@@ -16,14 +16,12 @@ def signup(request):
 def new_user(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
+        print request.POST
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            
-            # redirect to a new URL:
 
-            # return HttpResponseRedirect('/thanks/')
-
-            return render(request, 'thanks.html', {})
+            firstname = form.cleaned_data.get("name")
+            return render(request, 'thanks.html', {"name":firstname})
 
     else:
         form = SignUpForm()
@@ -33,5 +31,5 @@ def home(request):
     return render(request, 'home.html', {})
 
 def thanks(request):
-    return render(request, 'thanks.html', {})
+    return render(request, 'thanks.html', {"name":"tom"})
 
