@@ -19,9 +19,11 @@ def new_user(request):
         print request.POST
         if form.is_valid():
             # process the data in form.cleaned_data as required
-
             firstname = form.cleaned_data.get("name")
+
             return render(request, 'thanks.html', {"name":firstname})
+        else:
+            return render(request,'thanks.html',{"name":"data enterd is not valid"})
 
     else:
         form = SignUpForm()
