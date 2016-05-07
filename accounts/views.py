@@ -27,7 +27,7 @@ def new_user(request):
 
     else:
         form = SignUpForm()
-        return render(request, 'signup.html', {"form": form})
+    return render(request, 'signup.html', {"form": form})
 
 def home(request):
     return render(request, 'home.html', {})
