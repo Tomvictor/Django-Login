@@ -1,0 +1,31 @@
+{% extends  'base.html' %}
+{% load staticfiles %}
+
+
+{% block extrahead %}
+    <title>Welcome</title>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="container">
+  <div class="jumbotron">
+    <h1>Thanks for new registration </h1>
+
+
+      <p class="lead">
+        <a class="btn btn-success btn-lg" href="{% url "accounts:login" %}" role="button">Login</a>
+     </p>
+      <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url "accounts:signup" %}" role="button">SignUp</a>
+      </p>
+
+  </div>
+
+</div>
+
+{% endblock %}
