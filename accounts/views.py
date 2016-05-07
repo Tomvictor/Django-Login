@@ -18,9 +18,13 @@ def new_user(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             # process the data in form.cleaned_data as required
-
+            
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+
+            # return HttpResponseRedirect('/thanks/')
+
+            return render(request, 'thanks.html', {})
+
     else:
         form = SignUpForm()
         return render(request, 'signup.html', {"form": form})
