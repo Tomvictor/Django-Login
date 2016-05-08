@@ -16,7 +16,7 @@
   <div class="jumbotron">
     <h1>Welcome Page
         {% if user.is_authenticated %}
-        you are signed in
+        you are Logined as  <span> {{ user.username }}</span>
         {% endif %}
     </h1>
     <p>Django Login app is a demo starter app for implimenting the authentication of the django framework</p>
@@ -26,6 +26,9 @@
      </p>
       <p class="lead">
           <a class="btn btn-primary btn-lg" href="{% url "accounts:signup" %}" role="button">SignUp</a>
+      </p>
+      <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url "accounts:logout" %}" role="button">Logout</a>
       </p>
 
   </div>

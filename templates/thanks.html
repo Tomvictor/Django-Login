@@ -17,11 +17,17 @@
     <h1> {{ data }}</h1>
 
 
-      <p class="lead">
+       <p class="lead">
         <a class="btn btn-success btn-lg" href="{% url "accounts:login" %}" role="button">Login</a>
      </p>
       <p class="lead">
           <a class="btn btn-primary btn-lg" href="{% url "accounts:signup" %}" role="button">SignUp</a>
+      </p>
+      <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url "accounts:logout" %}" role="button">Logout</a>
+      </p>
+      <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url "signup" %}" role="button">Home</a>
       </p>
 
   </div>
