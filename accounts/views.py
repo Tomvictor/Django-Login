@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.utils import timezone
@@ -21,7 +21,8 @@ def login(request):
                 # the password verified for the user
                 if user.is_active:
                     print("User is valid, active and authenticated")
-                    return render(request, 'thanks.html', {"data": "User is valid, active and authenticated"})
+                    auth_login(request, user)
+                    return render(request, 'thanks.html', {"data": "User is valid, active, authenticated and Logined"})
                 else:
                     print("The password is valid, but the account has been disabled!")
                     return render(request, 'thanks.html', {"data": "The password is valid, but the account has been disabled!"})
@@ -71,6 +72,6 @@ def new_user(request):
 def home(request):
     return render(request, 'home.html', {})
 
-
-def thanks(request):
-    return render(request, 'thanks.html', {"name": "tom"})
+def logout_view(request):
+    logout(request)
+    return render(request, 'thanks.html', {"data": "Logout sucessfully"})
