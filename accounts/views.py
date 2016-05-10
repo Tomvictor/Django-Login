@@ -22,16 +22,16 @@ def login(request):
                 if user.is_active:
                     print("User is valid, active and authenticated")
                     auth_login(request, user)
-                    return render(request, 'thanks.html', {"data": "User is valid, active, authenticated and Logined"})
+                    return render(request, 'info.html', {"data": "User is valid, active, authenticated and Logined"})
                 else:
                     print("The password is valid, but the account has been disabled!")
-                    return render(request, 'thanks.html', {"data": "The password is valid, but the account has been disabled!"})
+                    return render(request, 'info.html', {"data": "The password is valid, but the account has been disabled!"})
             else:
                 # the authentication system was unable to verify the username and password
                 print("The username and password were incorrect.")
-                return render(request, 'thanks.html', {"data": "The username and password were incorrect.!"})
+                return render(request, 'info.html', {"data": "The username and password were incorrect.!"})
         else:
-            return render(request, 'thanks.html', {"data": " Invalid information submitted"})
+            return render(request, 'info.html', {"data": " Invalid information submitted"})
     return render(request, 'login.html', {"form": form})
 
 
@@ -60,9 +60,9 @@ def new_user(request):
             user.date_joined = timezone.now()
             user.save()
 
-            return render(request, 'thanks.html', {"data": first_name +" Thanks for new registration" })
+            return render(request, 'info.html', {"data": first_name +" Thanks for new registration" })
         else:
-            return render(request, 'thanks.html', {"data": "Data enterd is not valid, Thanks"})
+            return render(request, 'info.html', {"data": "Data enterd is not valid, Thanks"})
 
     else:
         form = SignUpForm()
@@ -74,4 +74,12 @@ def home(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, 'thanks.html', {"data": "Logout sucessfully"})
+    return render(request, 'info.html', {"data": "Logout sucessfully"})
+
+def verify(request):
+    if request.method=='GET':
+        print request.GET
+    return render(request, 'info.html', {"data":"This page is to check the GET Method"})
+
+
+
