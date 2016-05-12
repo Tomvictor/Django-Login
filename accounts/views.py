@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.utils import timezone
+from django.http import QueryDict
 
 from .forms import SignUpForm, LoginForm
 
@@ -78,6 +79,8 @@ def logout_view(request):
 
 def verify(request):
     if request.method=='GET':
+        data = request.GET
+        #result=QueryDict__getitem__("data")
         print request.GET
     return render(request, 'info.html', {"data":"This page is to check the GET Method"})
 
